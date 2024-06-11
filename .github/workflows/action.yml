@@ -4,7 +4,7 @@ on:
     branches:
       - feauture/cron
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '* 12 * * *'
 
 jobs:
   build:
