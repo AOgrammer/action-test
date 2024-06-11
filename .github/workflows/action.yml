@@ -1,4 +1,4 @@
-# ワークフロー名
+
 name: test
 on:
   push:
