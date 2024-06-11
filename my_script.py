@@ -1,17 +1,16 @@
+import locale
 import datetime
 
-# 今日の日付を取得
+# ロケールをシステムのデフォルトに設定
+locale.setlocale(locale.LC_TIME, '')
+
+# 現在の日付を取得
 today = datetime.date.today()
 
-# 曜日を取得 (月曜日=0, 日曜日=6)
-weekday_number = today.weekday()
+# 曜日
+weekday_name = today.strftime("%A")
 
-# 日本語の曜日名のリスト
-weekday_japense = ["月曜日","火曜日","水曜日","木曜日","金曜日","土曜日","日曜日"]
-
-# 今日の日本語の曜日名を取得
-today_weekday_japanese = weekday_japense[weekday_number]
-
+# 出力
 print("こんにちは！")
 print(f"今日の日付は{today}")
-print(f"曜日は {today_weekday_japanese}です！")
+print(f"今日の曜日は{weekday_name}です！")
