@@ -4,7 +4,7 @@ on:
     branches:
       - feature/cron
   schedule:
-    - cron: '*/3 * * * *' # 3分ごとに実行
+    - cron: '*/1 * * * *' # 3分ごとに実行
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
       - run: |
-          python $GITHUB_WORKSPACE/main.py
+          python main.py
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
           WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
