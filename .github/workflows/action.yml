@@ -20,5 +20,5 @@ jobs:
       - run: |
           python main.py
         env:
-          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+          MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
           WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
