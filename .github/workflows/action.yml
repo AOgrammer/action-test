@@ -1,9 +1,8 @@
-# ワークフロー名
 name: test
 on:
   push:
     branches:
-      - main
+      - feature/cron
   schedule:
     - cron: '*/5 * * * *'
 
