@@ -4,7 +4,7 @@ on:
     branches:
       - feature/cron
   schedule:
-    - cron: '0 17 * * *' # UTCの16時から5分ごとに実行
+    - cron: '0 14 * * *' # UTCの16時から5分ごとに実行
 
 jobs:
   build:
