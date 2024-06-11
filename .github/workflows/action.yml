@@ -1,11 +1,10 @@
-
 name: test
 on:
   push:
     branches:
       - feature/cron
   schedule:
-    - cron: '*/3 * * * *'
+    - cron: '0 16/5 * * *' # UTCの16時から5分ごとに実行
 
 jobs:
   build:
