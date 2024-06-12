@@ -83,11 +83,11 @@ def fetch_ready_items():
             if field["field"]["name"] == "End date":
                 end_date = field["date"]
             if field["field"]["name"] == "Assignees":
-                assignees = [user["name"] for user in field["users"]["nodes"]]
+                assignees = [user["name"] if user["name"] != "AOI" else "<@1239407972720054312>" for user in field["users"]["nodes"]]
 
         # カードのステータスが、Readyのものだけ結果の配列に追加 
         if status == "Ready":
-            message = f"title: {title}, end_date: {end_date}, assignees: {', '.join(assignees)}"
+            message = f"**Title**: {title}\n締切日: {end_date}\n担当者: {', '.join(assignees)}"
             if end_date:
                 end_date_obj = datetime.strptime(end_date, '%Y-%m-%d').date()
                 delta_days = (end_date_obj - today).days
@@ -95,9 +95,9 @@ def fetch_ready_items():
                 if delta_days > 0 and delta_days <= 2:
                     message += f" 期日が近いです。残り{delta_days}日です。"
                 elif delta_days == 0:
-                    message += " 期日が今日です！今すぐにやってください。"
+                    message += " 期日が今日です！今すぐにやってください😠"
                 elif delta_days < 0:
-                    message += f" 期日が{abs(delta_days)}日過ぎています！"
+                    message += f" 期日が{abs(delta_days)}日過ぎています😡"
             
             ready_items.append(message)
 
