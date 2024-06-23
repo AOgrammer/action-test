@@ -2,7 +2,7 @@ name: test4
 on:
   push:
     branches:
-      - feauture/cron
+      - main
   schedule:
     - cron: '* 17 * * *' 
 
